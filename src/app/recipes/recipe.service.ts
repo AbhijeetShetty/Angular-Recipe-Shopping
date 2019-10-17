@@ -1,6 +1,8 @@
 import { Recipe } from './recipe.model';
+import { EventEmitter } from '@angular/core';
 
 export class RecipeService {
+    recipeSelected = new EventEmitter<Recipe>();
     private recipes: Recipe[] = [
         new Recipe('testRecipe', 'Testing Model', 'https://thumbs.dreamstime.com/z/indian-food-curry-butter-chicken-palak-paneer-chiken-tikka-biryani-vegetable-papad-dal-sabji-jira-alu-rice-saffron-dark-138549999.jpg'),
         new Recipe('Another test', 'Testing Model', 'https://thumbs.dreamstime.com/z/indian-food-curry-butter-chicken-palak-paneer-chiken-tikka-biryani-vegetable-papad-dal-sabji-jira-alu-rice-saffron-dark-138549999.jpg')
@@ -9,4 +11,5 @@ export class RecipeService {
     getRecipes(){
         return this.recipes.slice();
     }
+
 }
